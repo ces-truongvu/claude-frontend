@@ -17,3 +17,15 @@
 
 - Use ` /gh-issue-task` to implement tasks
 - Use another terminal to review the first Claude's work until the feedback is allowed to merge.
+- Show git worktree if having time
+
+# Challenges for backend
+
+- Use Claude or Any LLM for explorer ideas
+- Find out architecture diagram and ERD diagram
+- Building agents, skills, hooks, commands
+
+## Submit survey
+
+- Pre-training survey: https://forms.gle/1sJVqdjEoY1igPCQ9
+- Post-training survey: https://forms.gle/AeEmBnDx3rsXbEDQ7

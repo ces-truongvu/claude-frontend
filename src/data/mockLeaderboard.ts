@@ -1,0 +1,158 @@
+import type { LeaderboardData } from "@/types/leaderboard"
+
+/**
+ * Mock leaderboard data for development
+ */
+
+const weeklyPlayers = [
+  {
+    id: "1",
+    rank: 1,
+    name: "Felix",
+    username: "@felixcodes",
+    avatar: "https://api.dicebear.com/7.x/notionists/svg?seed=Felix&backgroundColor=fef3c7",
+    score: 4250,
+    trend: "up" as const,
+    trendValue: 120,
+    isVerified: true,
+    isTopRank: true,
+  },
+  {
+    id: "2",
+    rank: 2,
+    name: "Sasha",
+    username: "@sasha_dev",
+    avatar: "https://api.dicebear.com/7.x/notionists/svg?seed=Sasha&backgroundColor=f3e8ff",
+    score: 3890,
+    trend: "down" as const,
+    trendValue: -45,
+    isVerified: false,
+    isTopRank: true,
+  },
+  {
+    id: "3",
+    rank: 3,
+    name: "Milo",
+    username: "@miloarts",
+    avatar: "https://api.dicebear.com/7.x/notionists/svg?seed=Milo&backgroundColor=fed7aa",
+    score: 3650,
+    trend: "up" as const,
+    trendValue: 80,
+    isVerified: true,
+    isTopRank: true,
+  },
+  {
+    id: "4",
+    rank: 4,
+    name: "Zoe",
+    username: "@zoe_creative",
+    avatar: "https://api.dicebear.com/7.x/notionists/svg?seed=Zoe&backgroundColor=dbeafe",
+    score: 3420,
+    trend: "neutral" as const,
+    trendValue: 0,
+    isVerified: false,
+    isTopRank: false,
+  },
+  {
+    id: "5",
+    rank: 5,
+    name: "Leo",
+    username: "@leo_dev",
+    avatar: "https://api.dicebear.com/7.x/notionists/svg?seed=Leo&backgroundColor=dcfce7",
+    score: 3180,
+    trend: "up" as const,
+    trendValue: 60,
+    isVerified: false,
+    isTopRank: false,
+  },
+]
+
+const alltimePlayers = [
+  {
+    id: "1",
+    rank: 1,
+    name: "Felix",
+    username: "@felixcodes",
+    avatar: "https://api.dicebear.com/7.x/notionists/svg?seed=Felix&backgroundColor=fef3c7",
+    score: 12750,
+    trend: "up" as const,
+    trendValue: 350,
+    isVerified: true,
+    isTopRank: true,
+  },
+  {
+    id: "3",
+    rank: 2,
+    name: "Milo",
+    username: "@miloarts",
+    avatar: "https://api.dicebear.com/7.x/notionists/svg?seed=Milo&backgroundColor=fed7aa",
+    score: 11420,
+    trend: "up" as const,
+    trendValue: 280,
+    isVerified: true,
+    isTopRank: true,
+  },
+  {
+    id: "2",
+    rank: 3,
+    name: "Sasha",
+    username: "@sasha_dev",
+    avatar: "https://api.dicebear.com/7.x/notionists/svg?seed=Sasha&backgroundColor=f3e8ff",
+    score: 10890,
+    trend: "down" as const,
+    trendValue: -120,
+    isVerified: false,
+    isTopRank: true,
+  },
+  {
+    id: "5",
+    rank: 4,
+    name: "Leo",
+    username: "@leo_dev",
+    avatar: "https://api.dicebear.com/7.x/notionists/svg?seed=Leo&backgroundColor=dcfce7",
+    score: 9650,
+    trend: "up" as const,
+    trendValue: 200,
+    isVerified: false,
+    isTopRank: false,
+  },
+  {
+    id: "4",
+    rank: 5,
+    name: "Zoe",
+    username: "@zoe_creative",
+    avatar: "https://api.dicebear.com/7.x/notionists/svg?seed=Zoe&backgroundColor=dbeafe",
+    score: 8920,
+    trend: "neutral" as const,
+    trendValue: 0,
+    isVerified: false,
+    isTopRank: false,
+  },
+]
+
+const currentUser = {
+  id: "guest",
+  rank: 42,
+  name: "Guest User",
+  username: "@guest",
+  avatar: "https://api.dicebear.com/7.x/notionists/svg?seed=Guest&backgroundColor=f5f5f5",
+  score: 2340,
+  trend: "up" as const,
+  trendValue: 45,
+  isVerified: false,
+  isTopRank: false,
+}
+
+export const mockLeaderboardData: Record<"week" | "alltime", LeaderboardData> =
+  {
+    week: {
+      period: "week",
+      players: weeklyPlayers,
+      currentUser,
+    },
+    alltime: {
+      period: "alltime",
+      players: alltimePlayers,
+      currentUser,
+    },
+  }
