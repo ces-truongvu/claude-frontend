@@ -17,8 +17,6 @@ function LandingPage({ className, ...props }: React.ComponentProps<"div">) {
       className={cn("min-h-screen flex flex-col bg-stone-50", className)}
       {...props}
     >
-      <div className="absolute inset-0 bg-gradient-to-b from-stone-50 to-white pointer-events-none" />
-
       <div className="relative flex flex-col flex-1">
         <Navigation />
         <Header />
