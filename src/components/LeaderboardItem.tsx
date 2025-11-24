@@ -4,7 +4,6 @@ import {
   TrendingUp,
   TrendingDown,
   Minus,
-  Crown,
 } from "lucide-react"
 import { cn } from "@/lib/utils"
 import type { Player } from "@/types/leaderboard"
@@ -14,12 +13,15 @@ interface LeaderboardItemProps extends React.ComponentProps<"button"> {
   variant?: "top1" | "top3" | "default"
 }
 
-function getRankBadgeStyles(variant?: "top1" | "top3" | "default") {
+function getRankBadgeStyles(variant?: "top1" | "top3" | "default", rank?: number) {
   switch (variant) {
     case "top1":
-      return "bg-yellow-100 text-yellow-700 w-10 h-10"
+      return "bg-yellow-100 text-yellow-700 w-10 h-10 border-2 border-white shadow-sm"
     case "top3":
-      return "bg-orange-100 text-orange-800 w-10 h-10"
+      if (rank === 2) {
+        return "bg-stone-100 text-stone-600 w-10 h-10 border-2 border-white shadow-sm"
+      }
+      return "bg-orange-100 text-orange-800 w-10 h-10 border-2 border-white shadow-sm"
     case "default":
       return "text-stone-400 w-10 h-10"
   }
@@ -96,11 +98,11 @@ function LeaderboardItemComponent({
       <div
         className={cn(
           "flex items-center justify-center rounded-full font-semibold text-sm flex-shrink-0",
-          getRankBadgeStyles(variant)
+          getRankBadgeStyles(variant, player.rank)
         )}
       >
         {variant === "top1" ? (
-          <Crown className="w-5 h-5" />
+          <span className="text-lg">👑</span>
         ) : (
           <span>{player.rank}</span>
         )}
