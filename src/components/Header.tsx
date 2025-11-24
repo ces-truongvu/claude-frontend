@@ -24,8 +24,8 @@ function Header({ className, ...props }: React.ComponentProps<"header">) {
       </h1>
 
       <p className="text-stone-500 max-w-md">
-        The friendliest competition on the internet. Join the wiggle, track your
-        rank, and celebrate your fellow wigglers.
+        The friendliest competition on the internet. Keep wiggling to reach the
+        top!
       </p>
     </header>
   )
