@@ -16,7 +16,8 @@ function LeaderboardFooter({
       {...props}
     >
       <button
-        className="text-sm text-stone-500 hover:text-stone-800 transition-colors flex items-center gap-2 font-medium"
+        type="button"
+        className="text-sm text-stone-500 hover:text-stone-800 transition-colors flex items-center gap-2 font-medium cursor-pointer"
         onClick={() => console.log("View full leaderboard")}
       >
         View full leaderboard

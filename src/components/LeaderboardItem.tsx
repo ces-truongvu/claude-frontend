@@ -9,19 +9,18 @@ import {
 import { cn } from "@/lib/utils"
 import type { Player } from "@/types/leaderboard"
 
-interface LeaderboardItemProps extends React.ComponentProps<"div"> {
+interface LeaderboardItemProps extends React.ComponentProps<"button"> {
   player: Player
   variant?: "top1" | "top3" | "default"
 }
 
-function getRankBadgeStyles(variant?: string) {
+function getRankBadgeStyles(variant?: "top1" | "top3" | "default") {
   switch (variant) {
     case "top1":
       return "bg-yellow-100 text-yellow-700 w-10 h-10"
     case "top3":
       return "bg-orange-100 text-orange-800 w-10 h-10"
-    default:
-      if (variant === "top1" || variant === "top3") return ""
+    case "default":
       return "text-stone-400 w-10 h-10"
   }
 }
@@ -48,39 +47,40 @@ function getTrendBadgeStyles(trend: "up" | "down" | "neutral") {
   }
 }
 
-function getHoverStyles(variant?: string) {
+function getHoverStyles(variant?: "top1" | "top3" | "default") {
   switch (variant) {
     case "top1":
       return "hover:bg-yellow-50/50 hover:border-yellow-100 hover:-translate-y-0.5"
     case "top3":
       return "hover:bg-orange-50/50 hover:border-orange-100 hover:-translate-y-0.5"
-    default:
+    case "default":
       return "hover:bg-stone-50 hover:border-stone-200 hover:-translate-y-0.5 grayscale opacity-80 hover:grayscale-0 hover:opacity-100"
   }
 }
 
-function getLeftAccentColor(variant?: string) {
+function getLeftAccentColor(variant?: "top1" | "top3" | "default") {
   switch (variant) {
     case "top1":
       return "left-0 top-0 bottom-0 w-1 bg-yellow-400"
     case "top3":
       return "left-0 top-0 bottom-0 w-1 bg-orange-400"
-    default:
+    case "default":
       return ""
   }
 }
 
-function LeaderboardItem({
+function LeaderboardItemComponent({
   player,
   variant = "default",
   className,
   ...props
 }: LeaderboardItemProps) {
   return (
-    <div
+    <button
+      type="button"
       data-slot="leaderboard-item"
       className={cn(
-        "relative bg-white border border-stone-100 rounded-lg p-3 flex items-center gap-3 transition-all duration-200",
+        "relative bg-white border border-stone-100 rounded-lg p-3 flex items-center gap-3 transition-all duration-200 cursor-pointer text-left",
         getHoverStyles(variant),
         className
       )}
@@ -110,6 +110,7 @@ function LeaderboardItem({
       <img
         src={player.avatar}
         alt={player.name}
+        loading="lazy"
         className={cn(
           "w-12 h-12 rounded-full flex-shrink-0",
           variant !== "top1" && variant !== "top3" && "grayscale opacity-80"
@@ -144,8 +145,10 @@ function LeaderboardItem({
           <span>{Math.abs(player.trendValue)}</span>
         </div>
       </div>
-    </div>
+    </button>
   )
 }
+
+const LeaderboardItem = React.memo(LeaderboardItemComponent)
 
 export { LeaderboardItem }

@@ -3,20 +3,21 @@ import { ChevronRight } from "lucide-react"
 import { cn } from "@/lib/utils"
 import type { Player } from "@/types/leaderboard"
 
-interface CurrentUserBannerProps extends React.ComponentProps<"div"> {
+interface CurrentUserBannerProps extends React.ComponentProps<"button"> {
   player: Player
 }
 
-function CurrentUserBanner({
+function CurrentUserBannerComponent({
   player,
   className,
   ...props
 }: CurrentUserBannerProps) {
   return (
-    <div
+    <button
+      type="button"
       data-slot="current-user-banner"
       className={cn(
-        "bg-stone-900 text-white rounded-lg p-4 flex items-center justify-between shadow-lg shadow-stone-300/50 hover:scale-[1.01] transition-transform duration-200 cursor-pointer",
+        "bg-stone-900 text-white rounded-lg p-4 flex items-center justify-between shadow-lg shadow-stone-300/50 hover:scale-[1.01] transition-transform duration-200 cursor-pointer text-left w-full",
         className
       )}
       onClick={() => console.log("View profile")}
@@ -38,8 +39,10 @@ function CurrentUserBanner({
         </span>
         <ChevronRight className="w-5 h-5 text-stone-500" />
       </div>
-    </div>
+    </button>
   )
 }
+
+const CurrentUserBanner = React.memo(CurrentUserBannerComponent)
 
 export { CurrentUserBanner }
