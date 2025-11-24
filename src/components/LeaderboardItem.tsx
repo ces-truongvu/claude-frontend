@@ -144,7 +144,7 @@ function LeaderboardItemComponent({
           )}
         >
           {getTrendIcon(player.trend, "w-3 h-3")}
-          <span>{Math.abs(player.trendValue)}</span>
+          <span>{Math.abs(player.trendValue)}%</span>
         </div>
       </div>
     </button>
