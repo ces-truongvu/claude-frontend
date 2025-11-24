@@ -1,0 +1,197 @@
+{
+  "version": "1.0.0",
+  "description": "Skill activation triggers for Claude Code in this NestJS/Next.js monorepo project.",
+  "skills": {
+    "skill-developer": {
+      "type": "domain",
+      "enforcement": "block",
+      "priority": "critical",
+      "description": "Meta-skill for creating and managing Claude Code skills and hooks",
+      "promptTriggers": {
+        "keywords": [
+          "skill",
+          "claude",
+          "hook",
+          "skill-rules",
+          ".claude",
+          "skill system",
+          "create skill",
+          "add skill",
+          "skill triggers"
+        ],
+        "intentPatterns": [
+          "(create|add|modify|build).*?skill",
+          "skill.*?(work|trigger|activate|system)",
+          "(how do|how does|explain).*?skill",
+          "update.*skill.*rules"
+        ]
+      }
+    },
+    "backend-dev-guidelines": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "priority": "high",
+      "description": "NestJS backend development patterns with Fastify, TypeORM, and JWT auth. MUST review repomix-output.xml before implementing or refactoring to understand existing patterns and prevent code duplication.",
+      "promptTriggers": {
+        "keywords": [
+          "nestjs",
+          "controller",
+          "service",
+          "repository",
+          "api",
+          "backend",
+          "typeorm",
+          "jwt",
+          "auth",
+          "fastify",
+          "feature module",
+          "dto",
+          "entity",
+          "migration",
+          "guard",
+          "interceptor",
+          "middleware",
+          "validation",
+          "throttling",
+          "pino",
+          "logging",
+          "implement",
+          "refactor",
+          "create feature"
+        ],
+        "intentPatterns": [
+          "(create|add|implement|build).*?(controller|service|repository|entity|dto)",
+          "(setup|configure).*?(auth|jwt|typeorm|fastify)",
+          "(add|implement).*?(guard|interceptor|middleware|validation)",
+          "(create|add).*?(feature|module)",
+          "(fix|handle|debug).*?(nestjs|backend|api)",
+          "(refactor|restructure|reorganize).*?(backend|api|service|controller)"
+        ]
+      },
+      "fileTriggers": {
+        "pathPatterns": [
+          "**/apps/api/src/features/**/*.ts",
+          "**/apps/api/src/common/**/*.ts",
+          "**/apps/api/src/**/*.controller.ts",
+          "**/apps/api/src/**/*.service.ts",
+          "**/apps/api/src/**/*.module.ts",
+          "**/apps/api/src/**/*.entity.ts"
+        ]
+      }
+    },
+    "frontend-dev-guidelines": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "priority": "high",
+      "description": "Next.js v15 frontend development with App Router, Shadcn/UI, and TypeScript. MUST review repomix-output.xml before implementing or refactoring to understand existing patterns and prevent code duplication.",
+      "promptTriggers": {
+        "keywords": [
+          "nextjs",
+          "react",
+          "component",
+          "frontend",
+          "ui",
+          "shadcn",
+          "tailwind",
+          "app router",
+          "server component",
+          "client component",
+          "safeFetch",
+          "zod",
+          "nextauth",
+          "typescript",
+          "page",
+          "layout",
+          "loading",
+          "error",
+          "not-found",
+          "implement",
+          "refactor",
+          "create feature"
+        ],
+        "intentPatterns": [
+          "(create|add|make|build|update).*?(component|page|layout)",
+          "(implement|add).*?(server|client).*?component",
+          "(setup|configure).*?(nextauth|safeFetch|shadcn)",
+          "(create|build).*?(frontend|ui|react)",
+          "(fix|debug).*?(nextjs|react|component)",
+          "(refactor|restructure|reorganize).*?(frontend|ui|component|page)"
+        ]
+      },
+      "fileTriggers": {
+        "pathPatterns": [
+          "**/apps/web/app/**/*.tsx",
+          "**/apps/web/components/**/*.tsx",
+          "**/apps/web/lib/**/*.ts"
+        ]
+      }
+    },
+    "error-tracking": {
+      "type": "guardrail",
+      "enforcement": "warn",
+      "priority": "medium",
+      "description": "Sentry v8 error tracking and performance monitoring for services",
+      "promptTriggers": {
+        "keywords": [
+          "error",
+          "exception",
+          "catch",
+          "try",
+          "sentry",
+          "logging",
+          "captureException",
+          "monitoring",
+          "performance",
+          "tracking"
+        ],
+        "intentPatterns": [
+          "(add|create|implement|setup).*?(error|sentry|tracking)",
+          "(fix|handle|catch).*?(error|exception)",
+          "monitor.*?(performance|errors)",
+          "track.*?(errors|performance)"
+        ]
+      }
+    },
+    "documentation-architect": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "priority": "low",
+      "description": "Create and update project documentation",
+      "promptTriggers": {
+        "keywords": [
+          "documentation",
+          "readme",
+          "docs",
+          "guide",
+          "manual",
+          "api docs",
+          "changelog"
+        ],
+        "intentPatterns": [
+          "(create|write|update).*?(documentation|readme|guide)",
+          "(document|explain).*?(api|feature|code)",
+          "add.*?(docs|documentation)"
+        ]
+      }
+    }
+  },
+  "notes": {
+    "enforcement_types": {
+      "suggest": "Skill suggestion appears but doesn't block execution",
+      "block": "Requires skill to be used before proceeding (guardrail)",
+      "warn": "Shows warning but allows proceeding"
+    },
+    "priority_levels": {
+      "critical": "Highest - Always trigger when matched",
+      "high": "Important - Trigger for most matches",
+      "medium": "Moderate - Trigger for clear matches",
+      "low": "Optional - Trigger only for explicit matches"
+    },
+    "project_context": {
+      "structure": "Turborepo monorepo with NestJS API and Next.js frontend",
+      "backend": "NestJS + Fastify + TypeORM + PostgreSQL + JWT auth",
+      "frontend": "Next.js v15 + App Router + Shadcn/UI + TailwindCSS v4",
+      "shared": "pnpm workspaces with shared packages"
+    }
+  }
+}

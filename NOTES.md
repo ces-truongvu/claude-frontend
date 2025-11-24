@@ -1,0 +1,7 @@
+- Download template from Aura.build
+- Init to create CLAUDE.md
+- Plan mode to generate tasks
+- Create a landing page from template @templates/index.html, breaking down to multiple phases
+- export to @dev/active/PLAN.md or create a GitHub issues including the checking-off tasks.
+- use command to track progress and update the plan.
+- use agent and skill-creator to create your own skills. Sample prompt: "@agent-frontend-developer researching patterns and best practices for the current project, then use skill-creator to create a frontend-dev skills. Remember breaking down best practices and patterns into multiple resources for references."
