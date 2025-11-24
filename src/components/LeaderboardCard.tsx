@@ -37,11 +37,16 @@ function LeaderboardCard({
       {...props}
     >
       {/* Tabs */}
-      <div className="p-4 border-b border-stone-100">
+      <div className="p-4 border-b border-stone-100 flex items-center justify-between">
         <LeaderboardTabs
           activePeriod={activePeriod}
           onPeriodChange={onPeriodChange}
         />
+        <div className="hidden sm:flex items-center gap-6 text-xs font-semibold text-stone-400">
+          <span className="w-10 text-right">RANK</span>
+          <span className="flex-1">PLAYER</span>
+          <span className="w-20 text-right">SCORE</span>
+        </div>
       </div>
 
       {/* Leaderboard list */}
