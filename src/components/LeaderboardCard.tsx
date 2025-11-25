@@ -37,20 +37,20 @@ function LeaderboardCard({
       {...props}
     >
       {/* Tabs */}
-      <div className="p-4 border-b border-stone-100 flex items-center justify-between">
+      <div className="flex items-center justify-between p-2 border-b border-stone-100">
         <LeaderboardTabs
           activePeriod={activePeriod}
           onPeriodChange={onPeriodChange}
         />
-        <div className="hidden sm:flex items-center gap-6 text-xs font-semibold text-stone-400">
-          <span className="w-10 text-right">RANK</span>
-          <span className="flex-1">PLAYER</span>
-          <span className="w-20 text-right">SCORE</span>
+        <div className="hidden sm:flex items-center gap-2 text-stone-400 text-xs font-medium uppercase tracking-wider px-4">
+          <span>Rank</span>
+          <span>Player</span>
+          <span className="ml-auto">Score</span>
         </div>
       </div>
 
       {/* Leaderboard list */}
-      <div className="p-3 flex flex-col gap-2">
+      <div className="flex flex-col p-3 gap-2">
         {players.map((player, index) => (
           <React.Fragment key={player.id}>
             <LeaderboardItem
@@ -59,15 +59,15 @@ function LeaderboardCard({
             />
             {/* Divider after rank 3 */}
             {index === 2 && players.length > 3 && (
-              <div className="h-px bg-stone-100 my-1" />
+              <div className="h-px bg-stone-100 mx-4 my-1" />
             )}
           </React.Fragment>
         ))}
-      </div>
 
-      {/* Current user banner */}
-      <div className="px-4 py-3 bg-stone-50/50">
-        <CurrentUserBanner player={currentUser} />
+        {/* Current user banner */}
+        <div className="mt-2 p-1">
+          <CurrentUserBanner player={currentUser} />
+        </div>
       </div>
 
       {/* Footer */}

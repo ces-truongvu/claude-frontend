@@ -14,21 +14,25 @@ function LandingPage({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="landing-page"
-      className={cn("min-h-screen flex flex-col bg-stone-50", className)}
+      className={cn(
+        "min-h-screen flex flex-col bg-stone-50 text-stone-800 antialiased selection:bg-purple-200 selection:text-purple-900",
+        className
+      )}
       {...props}
     >
-      <div className="relative flex flex-col flex-1">
+      <div className="flex flex-col min-h-screen">
         <Navigation />
-        <Header />
 
-        <div className="max-w-2xl mx-auto w-full px-4 py-8">
+        <main className="flex-grow w-full max-w-2xl mx-auto px-4 sm:px-6 pb-12 flex flex-col">
+          <Header />
+
           <LeaderboardCard
             players={currentData.players}
             currentUser={currentData.currentUser}
             activePeriod={period}
             onPeriodChange={setPeriod}
           />
-        </div>
+        </main>
 
         <Footer />
       </div>

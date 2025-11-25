@@ -21,7 +21,7 @@ function LeaderboardFooter({
         onClick={() => console.log("View full leaderboard")}
       >
         View full leaderboard
-        <ArrowRight className="w-4 h-4" />
+        <ArrowRight className="w-4 h-4" strokeWidth={1.5} />
       </button>
     </div>
   )

@@ -17,19 +17,19 @@ function CurrentUserBannerComponent({
       type="button"
       data-slot="current-user-banner"
       className={cn(
-        "bg-stone-900 text-white rounded-lg p-4 flex items-center justify-between shadow-lg shadow-stone-300/50 hover:scale-[1.01] transition-transform duration-200 cursor-pointer text-left w-full",
+        "bg-stone-900 text-white rounded-xl p-4 flex items-center justify-between shadow-lg shadow-stone-300/50 transform transition-transform hover:scale-[1.01] cursor-pointer w-full",
         className
       )}
       onClick={() => console.log("View profile")}
       {...props}
     >
-      <div className="flex items-center gap-3">
-        <div className="w-8 h-8 bg-stone-700 rounded-full flex items-center justify-center font-semibold text-sm">
+      <div className="flex items-center gap-4">
+        <div className="w-8 h-8 flex items-center justify-center rounded-full bg-stone-700 text-sm font-semibold">
           {player.rank}
         </div>
-        <div className="flex flex-col">
-          <span className="text-sm text-stone-200">You</span>
-          <span className="font-semibold text-stone-100">{player.name}</span>
+        <div className="flex flex-col items-start">
+          <span className="font-medium text-sm text-stone-200">You</span>
+          <span className="font-semibold text-base">{player.name}</span>
         </div>
       </div>
 
@@ -37,7 +37,7 @@ function CurrentUserBannerComponent({
         <span className="font-mono text-lg font-semibold">
           {player.score.toLocaleString()}
         </span>
-        <ChevronRight className="w-5 h-5 text-stone-500" />
+        <ChevronRight className="w-5 h-5 text-stone-500" strokeWidth={1.5} />
       </div>
     </button>
   )

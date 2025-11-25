@@ -15,16 +15,13 @@ function LeaderboardTabs({
   return (
     <div
       data-slot="leaderboard-tabs"
-      className={cn(
-        "bg-stone-50 rounded-xl p-1 flex gap-1 w-fit",
-        className
-      )}
+      className={cn("bg-stone-50 rounded-xl p-1 flex gap-1 w-fit", className)}
       {...props}
     >
       <button
         onClick={() => onPeriodChange("week")}
         className={cn(
-          "px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200",
+          "px-4 py-1.5 rounded-lg text-sm font-medium transition-all duration-200",
           activePeriod === "week"
             ? "bg-white text-stone-900 shadow-sm border border-stone-200"
             : "text-stone-500 hover:text-stone-700"
@@ -35,7 +32,7 @@ function LeaderboardTabs({
       <button
         onClick={() => onPeriodChange("alltime")}
         className={cn(
-          "px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200",
+          "px-4 py-1.5 rounded-lg text-sm font-medium transition-all duration-200",
           activePeriod === "alltime"
             ? "bg-white text-stone-900 shadow-sm border border-stone-200"
             : "text-stone-500 hover:text-stone-700"
